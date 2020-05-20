@@ -1,15 +1,13 @@
 open import Relation.Binary.PropositionalEquality using (_≡_)
-open import Data.Unit using (⊤; tt)
-open import Data.Product
-open import Data.Nat using (ℕ; zero; suc; _+_; _>_; _>?_; _≤_; _≤?_)
+open import Data.Nat using (ℕ; zero; suc; _+_; _>_; _>?_; _≤_; _≤?_; z≤n; s≤s)
 open import Data.Nat.Properties
---open import Data.Bool
 open import Relation.Nullary
 
 data OList : ℕ → Set where
   []      : {x : ℕ} → OList x
   _:[_]:_ : {b : ℕ} → (x : ℕ) → b ≤ x → OList x → OList b
 
+{-# TERMINATING #-}
 merge : {n : ℕ} → OList n → OList n → OList n
 merge [] ys = ys
 merge xs [] = xs
