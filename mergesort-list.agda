@@ -3,6 +3,9 @@ open import Data.Nat using (ℕ; zero; suc; _+_; _>_; _>?_; _≤_; _≤?_; z≤n
 open import Data.Nat.Properties
 open import Relation.Nullary
 
+data List (A : Set) : Set where
+  [] : List A
+
 data OList : ℕ → Set where
   []      : {x : ℕ} → OList x
   _:[_]:_ : {b : ℕ} → (x : ℕ) → b ≤ x → OList x → OList b
